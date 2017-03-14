@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93a91afe-8b8b-4b4e-9639-f13374baae71" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Generator函数的语法.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generator函数的语法.js" afterPath="$PROJECT_DIR$/Generator函数的语法.js" />
     </list>
     <ignored path="es6.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +26,8 @@
       <file leaf-file-name="Generator函数的语法.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Generator函数的语法.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+            <state relative-caret-position="177">
+              <caret line="622" column="54" selection-start-line="622" selection-start-column="54" selection-end-line="622" selection-end-column="54" />
               <folding>
                 <element signature="n#!!doc;n#helloWorldGenerator#0" expanded="false" />
               </folding>
@@ -65,8 +61,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="778" />
-    <option name="y" value="37" />
+    <option name="x" value="727" />
+    <option name="y" value="28" />
     <option name="width" value="1467" />
     <option name="height" value="988" />
   </component>
@@ -200,15 +196,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489459279899</updated>
-      <workItem from="1489459284511" duration="5493000" />
+      <workItem from="1489459284511" duration="14366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5493000" />
+    <option name="totallyTimeSpent" value="14366000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="778" y="37" width="1467" height="988" extended-state="0" />
+    <frame x="727" y="28" width="1467" height="988" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1493776" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -249,10 +245,18 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript6.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="709" column="0" selection-start-line="709" selection-start-column="0" selection-end-line="709" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Generator函数的语法.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+        <state relative-caret-position="177">
+          <caret line="622" column="54" selection-start-line="622" selection-start-column="54" selection-end-line="622" selection-end-column="54" />
           <folding>
             <element signature="n#!!doc;n#helloWorldGenerator#0" expanded="false" />
           </folding>
