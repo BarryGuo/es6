@@ -730,3 +730,204 @@ function *logReturned(genObj) {
 }
 [...logReturned(genFuncWithReturn())]; //值为[a,b]   the result
 
+
+
+
+//yield*命令可以很方便的取出嵌套数组的所有成员
+function * iterTree(tree) {
+    if (Array.isArray(tree)){
+        for(let i=0; i<tree.length; i++){
+            yield *iterTree(tree[i]);
+        }
+    } else {
+        yield tree;
+    }
+}
+const tree = ["a", ["b", "c"], ["d", "e"]];
+for(let x of iterTree(tree)){
+    console.log(x);
+}
+
+
+
+
+
+
+
+
+//下面是一个稍微复杂的例子,使用yield*语句遍历完全二叉树
+//下面是二叉树的构造函数,三个参数分别是左树、当前节点和右树
+function Tree(left, label, right) {
+    this.left =  left;
+    this.label = label;
+    this.right = right;
+}
+
+//下面是中序(inorder)遍历函数
+//由于返回的是一个遍历器,所以要用Generator函数
+//函数体内采用递归算法,所以左树和右树要用yield*遍历
+function *inorder(t) {
+    if (t){
+        yield *inorder(t.left);
+        yield t.label;
+        yield *inorder(t.right);
+    }
+}
+
+//下面生产二叉树
+function make(array) {
+    //判断是否为叶节点
+    if(array.length == 1) return new Tree(null, array[0], null);
+    return new Tree(make(array[0]), array[1], make(array[2]));
+}
+
+let Tree = make([[["a"], "b", ["c"]], "d", [["e"], "f", ["g"]]]);
+
+//遍历二叉树
+var result = [];
+for(let node of inorder(tree)){
+    result.push(node);
+}
+console.log(result); //// ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+
+
+
+
+
+
+//作为对象属性的Generator函数
+//如果一个对象的属性是Generator函数,可以简写为下面的形式
+let obj = {
+    * myGeneratorMethod(){
+        //some code
+    }
+};
+
+//等价于下面的写法
+let obj = {
+    myGeneratorMethod: function *() {
+
+    }
+};
+
+
+
+
+
+//Generator函数的this
+//Generator函数返回的遍历器,是该函数的实例,继承该函数prototype对象上的方法。
+function *g() {};
+g.prototype.hello = function () {
+    return "hi";
+}
+let obj = g();
+obj instanceof  g; //true
+obj.hello(); //hi
+
+//但是如果把generator函数当成普通的构造函数,并不会生效,因为返回的是遍历器对象,不是this对象
+function *g() {
+    this.a = 1;
+}
+let  obj = g();
+obj.a; //undefined
+
+//Generator函数和new命令一起用,也会报错
+function *F() {
+    yield this.x = 2;
+    yield this.y = 3;
+}
+// return F();  //F is not a  constructor
+
+
+
+
+
+
+//Generator与状态机
+//Generator是实现状态机的最佳结构。比如,下面的clock函数就是一个状态机
+var ticking = true;
+var clock = function () {
+    if (ticking){
+        console.log("tick");
+    }else {
+        console.log("tock")
+    }
+    ticking = !ticking;
+}
+
+//generator函数实现
+var clock = function *() {
+    while (true){
+        console.log("tick");
+        yield ;
+        console.log("tock");
+        yield ;
+    }
+};
+
+
+
+
+
+//Generator与协程
+
+
+
+
+
+
+//Generator应用
+//异步操作的同步化表达
+function *loadUI() {
+    showLoadingScreen();
+    yield loadUIDataAsynchronously();
+    hideLoadingScreen();
+}
+var loader = loadUI();
+//加载UI
+loader.next();
+//卸载UI
+loader.next();
+
+
+
+
+//使用Generator函数部署Ajax操作
+function *main() {
+    var result = yield request("http://some.url");
+    var resp = JSON.parse(result);
+    console.log(resp.value);
+}
+function request(url) {
+    makeAjaxCall(url, function (response) {
+        it.next(response);
+    });
+}
+var it = main();
+console.log(it.next());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
