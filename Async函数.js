@@ -101,6 +101,24 @@ const foo = async() => {};
 
 //语法
 
+//返回Promise对象。async函数内部return语句返回的值,会成为then方法回调函数的参数
+async function f() {
+    return "hello world";
+}
+f().then(v => console.log(v));  //hello world
+
+//async函数内部抛出错误,会导致返回的Promise对象变成reject状态。抛出的错误对象 会被catch方法回调函数收到
+async function f() {
+    throw new Error("出错了");
+}
+f().then(
+    v => console.log(v),
+    e => console.log(e)
+)
+// error:出错了
+
+
+//Promise对象的状态变化。只有async内部的异步操作执行完,才会执行then方法指定的回调函数
 
 
 
